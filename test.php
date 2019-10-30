@@ -1,0 +1,25 @@
+<?php
+include "class_imagedna.php";
+// Prevent Caching
+header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
+$f1 = dirname(__FILE__).'/estella.png';
+$f2 = dirname(__FILE__).'/estella.jpg';
+$IDNA = new ImageDNA();
+$data1 = $IDNA->img2D($f1);
+$data2 = $IDNA->img2D($f2);
+
+$t1 = array_sum($data1);
+$t2 = array_sum($data2);
+
+$data1 = implode(",",$data1);
+$data2 = implode(",",$data2);
+
+echo "IMAGE DNA1: $data1 = $t1\n\n";
+echo "IMAGE DNA2: $data2 = $t2\n";
+
+exit;
