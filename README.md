@@ -25,3 +25,24 @@ ImageDNA: 153,157,154,62,32,62,100,33,33,26,16,69,76,107,108,94,169,173,170,133,
 Image MD5: ef31f4ee51c395745d533324b193ded2
 ImageDNA: 138,132,137,169,190,198,205,202,206,214,213,200,174,165,153,142,138,134,141,177,178,190,214,213,214,220,213,193,178,172,158,145,136,137,148,186,198,206,220,220,180,170,201,221,201,181,162,146,137,142,157,201,209,221,194,201,48,113,197,220,241,220,168,158,137,148,170,214,204,216,209,181,54,169,206,198,177,198,185,189,81,75,192,216,230,212,202,184,188,150,134,192,185,202,222,194,94,157,213,192,127,190,189,190,176,50,37,51,233,233,217,188,99,208,202,182,125,228,194,186,149,73,37,39,240,234,218,176,110,208,225,210,200,234,214,214,162,110,39,38,226,229,209,174,138,209,205,174,164,217,204,218,170,99,62,39,217,230,209,172,153,206,218,185,117,220,181,168,88,48,66,84,194,170,177,188,146,182,200,174,212,216,205,197,190,237,201,189,186,176,142,182,154,160,184,168,222,197,194,218,221,197,206,205,204,193,160,156,134,146,166,169,173,184,214,201,186,196,198,200,186,185,142,124,132,140,149,178,181,190,192,182,202,196,189,186,169,173,186,142,130,134,142,170,180,182,189,190,190,190,188,186,156,148,146,137 = 44612
 ```
+
+## debug_1.php - Step 1: Convert Image to Grayscale / Black & White
+![debug_image 1](/debug_1.png)
+
+## debug_2.php - Step 2: Resize Image to fixed height/width default is 512x512
+![debug_image 2](/debug_2.png)
+
+## debug_3.php - Step 3: Break up the image into grid and cells default 32x32, create an average of the cell's pixel color
+![debug_image 3](/debug_3.png)
+
+## debug_4.php - Step 4: Combine all the cells back together to a pixelated version
+![debug_image 4](/debug_4.png)
+
+## debug_5.php - Step 5: Resize image to where cells are 1 pixel in height/width, default 16 pixels.
+![debug_image 5](/debug_5.png)
+
+## Final Step
+After all the steps are complete, pixels are converted to their 0xFF bytes and stored within an array that acts as the DNA,
+which 16x16 DNA image results in 256 values. These are sumed to compute an easy to see delta when comparing to another image's DNA.
+
+The closer the numbers the more likely a match, looking at the DNA can rule out false positives, larger numbers mean greater divergence.
