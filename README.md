@@ -33,6 +33,7 @@ ImageDNA: 138,132,137,169,190,198,205,202,206,214,213,200,174,165,153,142,138,13
 ![debug_image 2](/debug_2.png)
 
 ## debug_3.php - Step 3: Break up the image into grid and cells default 32x32, create an average of the cell's pixel color
+Single Cell in upper left for debug demo
 ![debug_image 3](/debug_3.png)
 
 ## debug_4.php - Step 4: Combine all the cells back together to a pixelated version
