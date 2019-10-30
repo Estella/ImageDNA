@@ -8,7 +8,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
 $f1 = dirname(__FILE__).'/estella.png';
-$f2 = dirname(__FILE__).'/estella.jpg';
+$f2 = dirname(__FILE__).'/letseat.jpg';
 $IDNA = new ImageDNA();
 $data1 = $IDNA->img2D($f1);
 $data2 = $IDNA->img2D($f2);

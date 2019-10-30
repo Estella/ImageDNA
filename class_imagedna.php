@@ -1,7 +1,27 @@
 <?php
 class ImageDNA {
   public function img2D($f,$rezz = 512,$iris = 32,$sig = 16) {
-    $im = imagecreatefromstring(file_get_contents($f));
+    if (!file_exists($f)) { return false; }
+    $output = array();
+    $output['hashes']['md5'] = hash_file('md5', $f);
+    $output['hashes']['sha1'] = hash_file('sha1', $f);
+    $output['hashes']['sha256'] = hash_file('sha256', $f);
+    $extension = strtolower(pathinfo($f, PATHINFO_EXTENSION));
+    switch ($extension) {
+      case 'jpg':
+      case 'jpeg':
+        $im = imagecreatefromjpeg($f);
+        break;
+      case 'gif':
+        $im = imagecreatefromgif($f);
+        break;
+      case 'png':
+        $im = imagecreatefrompng($f);
+         break;
+      default:
+        $im = imagecreatefromstring(file_get_contents($f));
+        break;
+    }
     list($imgw, $imgh) = getimagesize($f);
     for ($i=0; $i<$imgw; $i++){
       for ($j=0; $j<$imgh; $j++) {
@@ -33,6 +53,9 @@ class ImageDNA {
         $data[] = round(($pix['R'] + $pix['G'] + $pix['B']) / 3);
       }
     }
-    return $data;
+    $output['dna'] = $data;
+    $output['sum'] = array_sum($data);
+
+    return $output;
   }
 }
