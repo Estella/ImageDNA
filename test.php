@@ -22,6 +22,7 @@ $h2 = $data2['hashes']['md5'];
 $data1 = implode(",",$data1['dna']);
 $data2 = implode(",",$data2['dna']);
 
+header("Content-type: text/plain");
 echo "Image MD5: $h1\nImageDNA: $data1 = $t1\n\n";
 echo "Image MD5: $h2\nImageDNA: $data2 = $t2\n";
 
