@@ -1,6 +1,6 @@
 ![ImageDNA](/imagedna.png)
 # ImageDNA
-opensource photo matching based on the PhotoDNA concepts. I read about this years ago and thought it was interesting so decided to see what was involved with it.
+opensource photo matching based on the PhotoDNA concepts. I read about this years ago and thought it was interesting so decided to see what was involved with it. Rotations and mirror/flips will need to be added to reorient the images to have a higher degree of matching success.
 
 Used this as a reference: https://news.microsoft.com/en-gb/2013/11/18/tacklingproliferatio/
 
